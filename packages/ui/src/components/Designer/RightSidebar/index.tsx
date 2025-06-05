@@ -45,11 +45,14 @@ const Sidebar = (props: SidebarProps) => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            top: '1rem',
-            right: '1rem',
+            top: options.toggleSidebarButtonPosition === 'bottom' ? 'initial' : '1rem',
+            bottom: options.toggleSidebarButtonPosition === 'bottom' ? '1rem' : 'initial',
+            left: options.mainSidebarPosition === 'left' && !sidebarOpen ? '1rem' : 'initial',
+            right: (options.mainSidebarPosition === 'left' && sidebarOpen) || options.mainSidebarPosition === 'right' ? '1rem' : 'initial',
             zIndex: 100,
           }}
-          icon={sidebarOpen ? <ArrowRight {...iconProps} /> : <ArrowLeft {...iconProps} />}
+          className={"pdf-editor-toggle-sidebar-button"}
+          icon={(sidebarOpen && options.mainSidebarPosition !== 'left') || (!sidebarOpen && options.mainSidebarPosition === 'left') ? <ArrowRight {...iconProps} /> : <ArrowLeft {...iconProps} />}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         />
         <div

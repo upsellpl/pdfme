@@ -73,9 +73,7 @@ function DesignerApp() {
             {
               type: 'button',
               textContent: 'Kliknij',
-              action: function () {
-                console.log('klik');
-              }
+              actionName: 'selectBackground'
             },
             {
               type: 'paragraph',
@@ -86,6 +84,8 @@ function DesignerApp() {
             }
           ],
           mainSidebarPosition: 'left',
+          toggleSidebarButtonPosition: 'bottom',
+          hiddenProperties: ['type', 'name', 'editable', 'required'],
         },
         plugins: getPlugins(),
       });

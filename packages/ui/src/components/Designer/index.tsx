@@ -332,6 +332,7 @@ const TemplateEditor = ({
             }}
             zoomLevel={zoomLevel}
             setZoomLevel={setZoomLevel}
+            sidebarOpen={sidebarOpen}
             {...pageManipulation}
           />
 

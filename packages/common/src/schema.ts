@@ -204,14 +204,17 @@ export const UIOptions = CommonOptions.extend({
   maxZoom: z.number().optional(),
   sidebarOpen: z.boolean().optional(),
   zoomLevel: z.number().optional(),
-  showPluginsSidebar: z.boolean().optional().default(true),
+  showPluginsSidebar: z.boolean().optional(),
   customMainView: z.array(
       z.object({
         type: z.string(),
-        textContent: z.string().optional()
+        textContent: z.string().optional(),
+        actionName: z.string().optional(),
       })
-  ).optional().default([]),
-  mainSidebarPosition: z.enum(['left', 'right']).optional().default('right'),
+  ).optional(),
+  mainSidebarPosition: z.enum(['left', 'right']).optional(),
+  hiddenProperties: z.array(z.string()).optional(),
+  toggleSidebarButtonPosition: z.enum(['bottom', 'top']).optional(),
 });
 
 const HTMLElementSchema: z.ZodSchema<HTMLElement> = z.any().refine((v) => v instanceof HTMLElement);

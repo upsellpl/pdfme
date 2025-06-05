@@ -215,6 +215,7 @@ const DetailView = (props: DetailViewProps) => {
         props: { options: typeOptions },
         required: true,
         span: 12,
+        hidden: (options.hiddenProperties ?? []).includes('type'),
       },
       name: {
         title: typedI18n('fieldName'),
@@ -228,20 +229,21 @@ const DetailView = (props: DetailViewProps) => {
           },
         ],
         props: { autoComplete: 'off' },
+        hidden: (options.hiddenProperties ?? []).includes('name'),
       },
       editable: {
         title: typedI18n('editable'),
         type: 'boolean',
         span: 8,
-        hidden: typeof defaultSchema.readOnly !== 'undefined',
+        hidden: (typeof defaultSchema.readOnly !== 'undefined') || (options.hiddenProperties ?? []).includes('editable'),
       },
       required: {
         title: typedI18n('required'),
         type: 'boolean',
         span: 16,
-        hidden: '{{!formData.editable}}',
+        hidden: !form.getValues().editable || (options.hiddenProperties ?? []).includes("required"),
       },
-      '-': { type: 'void', widget: 'Divider' },
+      '-': { type: 'void', widget: 'Divider', hidden: Array.isArray(options.hiddenProperties) && (['required', 'type', 'name', 'editable'].every(item => (options.hiddenProperties ?? []).includes(item))) },
       align: { title: typedI18n('align'), type: 'void', widget: 'AlignWidget' },
       position: {
         type: 'object',
