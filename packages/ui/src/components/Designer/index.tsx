@@ -310,13 +310,15 @@ const TemplateEditor = ({
         }}
         onDragStart={onEditEnd}
       >
-        <LeftSidebar
-          height={canvasRef.current ? canvasRef.current.clientHeight : 0}
-          scale={scale}
-          basePdf={template.basePdf}
-        />
+        {options.showPluginsSidebar !== false ?
+          <LeftSidebar
+            height={canvasRef.current ? canvasRef.current.clientHeight : 0}
+            scale={scale}
+            basePdf={template.basePdf}
+          />
+        : <></> }
 
-        <div style={{ position: 'absolute', width: canvasWidth, marginLeft: LEFT_SIDEBAR_WIDTH }}>
+        <div style={{ position: 'absolute', width: canvasWidth, marginLeft: options.showPluginsSidebar ? LEFT_SIDEBAR_WIDTH : 0 }}>
           <CtlBar
             size={sizeExcSidebars}
             pageCursor={pageCursor}
@@ -354,6 +356,7 @@ const TemplateEditor = ({
             deselectSchema={onEditEnd}
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
+            basePdf={template.basePdf}
           />
 
           <Canvas
