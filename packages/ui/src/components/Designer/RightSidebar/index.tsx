@@ -37,6 +37,7 @@ const Sidebar = (props: SidebarProps) => {
         width: sidebarOpen ? RIGHT_SIDEBAR_WIDTH : 0,
         ...sidebarPositionStyle
       }}
+      className={"pdf-editor-sidebar"}
     >
       <div>
         <Button
@@ -69,6 +70,7 @@ const Sidebar = (props: SidebarProps) => {
             boxSizing: 'border-box',
             background: token.colorBgLayout,
           }}
+          className={"pdf-editor-sidebar-wrapper"}
         >
           <div>
             {getActiveSchemas().length === 0 ? (
