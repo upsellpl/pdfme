@@ -49,7 +49,7 @@ const Sidebar = (props: SidebarProps) => {
             top: options.toggleSidebarButtonPosition === 'bottom' ? 'initial' : '1rem',
             bottom: options.toggleSidebarButtonPosition === 'bottom' ? '1rem' : 'initial',
             left: options.mainSidebarPosition === 'left' && !sidebarOpen ? '1rem' : 'initial',
-            right: (options.mainSidebarPosition === 'left' && sidebarOpen) || options.mainSidebarPosition === 'right' ? '1rem' : 'initial',
+            right: (options.mainSidebarPosition === 'left' && sidebarOpen) || options.mainSidebarPosition !== 'left' ? '1rem' : 'initial',
             zIndex: 100,
           }}
           className={"pdf-editor-toggle-sidebar-button"}

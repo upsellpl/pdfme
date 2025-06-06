@@ -318,7 +318,7 @@ const TemplateEditor = ({
           />
         : <></> }
 
-        <div style={{ position: 'absolute', width: canvasWidth, marginLeft: options.showPluginsSidebar ? LEFT_SIDEBAR_WIDTH : 0 }}>
+        <div style={{ position: 'absolute', width: canvasWidth, marginLeft: (options.showPluginsSidebar ?? true) ? LEFT_SIDEBAR_WIDTH : 0 }}>
           <CtlBar
             size={sizeExcSidebars}
             pageCursor={pageCursor}

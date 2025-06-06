@@ -86,6 +86,7 @@ function DesignerApp() {
           mainSidebarPosition: 'left',
           toggleSidebarButtonPosition: 'bottom',
           hiddenProperties: ['type', 'name', 'editable', 'required'],
+
         },
         plugins: getPlugins(),
       });
