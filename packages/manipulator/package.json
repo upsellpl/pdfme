@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/manipulator",
+  "name": "@publigo/pdfme-manipulator",
   "version": "0.0.0",
   "sideEffects": false,
   "author": "hand-dot",

@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/converter",
+  "name": "@publigo/pdfme-converter",
   "version": "0.0.0",
   "sideEffects": false,
   "author": "hand-dot",

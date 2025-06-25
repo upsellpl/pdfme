@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/schemas",
+  "name": "@publigo/pdfme-schemas",
   "version": "0.0.0",
   "sideEffects": false,
   "author": "hand-dot",
