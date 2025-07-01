@@ -59,6 +59,7 @@ const replaceUnsupportedChars = (text: string, fontKitFont: FontKitFont): string
 export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
   const { value, schema, mode, onChange, stopEditing, tabIndex, placeholder, options, _cache } =
     arg;
+
   const usePlaceholder = isEditable(mode, schema) && placeholder && !value;
   const getText = (element: HTMLDivElement) => {
     let text = element.innerText;

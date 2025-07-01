@@ -79,11 +79,13 @@ const PluginButtonList = ({
                 overflow: isDragging ? 'visible' : 'auto',
             }}
         >
-            {pluginsRegistry.entries().map(([label, plugin]) => {
+            {pluginsRegistry.entries().map(([name, plugin]) => {
                 if (!plugin?.propPanel?.defaultSchema) return null;
 
+                const label = plugin.propPanel.defaultSchema.label ?? name;
+
                 return (
-                    <Draggable key={label} scale={1} basePdf={basePdf} plugin={plugin}>
+                    <Draggable key={name} scale={1} basePdf={basePdf} plugin={plugin}>
                         <Button
                             className={"pdf-editor-plugin-button"}
                             onMouseDown={() => setIsDragging(true)}
