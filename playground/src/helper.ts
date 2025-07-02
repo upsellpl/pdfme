@@ -1,6 +1,6 @@
 import { Template, Font, checkTemplate, getInputFromTemplate, getDefaultFont } from '@pdfme/common';
-import { Form, Viewer, Designer } from '@pdfme/ui';
-import { generate } from '@pdfme/generator';
+import { Form, Viewer, Designer } from '@publigo/pdfme-ui';
+import { generate } from '@publigo/pdfme-generator';
 import { getPlugins } from './plugins';
 
 export function fromKebabCase(str: string): string {

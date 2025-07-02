@@ -74,7 +74,7 @@ const Sidebar = (props: SidebarProps) => {
         >
           <div>
             {getActiveSchemas().length === 0 ? (
-                (Array.isArray(options.customMainView) && options.customMainView.length)  ? <CustomizableView config={options.customMainView} basePdf={props.basePdf} /> : <ListView {...props} />
+                (Array.isArray(options.customMainView) && options.customMainView.length)  ? <CustomizableView config={options.customMainView} basePdf={props.basePdf} schemas={schemas} /> : <ListView {...props} />
             ) : (
               <DetailView {...props} activeSchema={getLastActiveSchema()} />
             )}

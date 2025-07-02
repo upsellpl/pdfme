@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Button, theme } from 'antd';
-import { Plugin, Schema, BasePdf, getFallbackFontName } from '@pdfme/common';
+import {Plugin, Schema, BasePdf, getFallbackFontName, SchemaForUI} from '@pdfme/common';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { OptionsContext, PluginsRegistry } from '../../../../contexts.js';
@@ -53,9 +53,11 @@ const Draggable = (props: {
 };
 
 const PluginButtonList = ({
-  basePdf,
+    basePdf,
+    schemas,
 }: {
     basePdf: BasePdf;
+    schemas: SchemaForUI[];
 }) => {
     const { token } = theme.useToken();
     const pluginsRegistry = useContext(PluginsRegistry);
@@ -83,12 +85,27 @@ const PluginButtonList = ({
                 if (!plugin?.propPanel?.defaultSchema) return null;
 
                 const label = plugin.propPanel.defaultSchema.label ?? name;
+                const onePerDoc = !!plugin.propPanel.defaultSchema.onePerDoc;
+                const disabled = onePerDoc && (schemas.some(schema => schema.type === plugin.propPanel.defaultSchema.type));
+
+                if(disabled) {
+                    return (
+                        <Button
+                            key={name}
+                            className={"pdf-editor-plugin-button"}
+                            style={{ display: 'block', width: '100%', marginBottom: 8 }}
+                            disabled={true}
+                        >
+                            {label}
+                        </Button>
+                    );
+                }
 
                 return (
                     <Draggable key={name} scale={1} basePdf={basePdf} plugin={plugin}>
                         <Button
                             className={"pdf-editor-plugin-button"}
-                            onMouseDown={() => setIsDragging(true)}
+                            onMouseDown={disabled ? () => {} : () => setIsDragging(true)}
                             style={{ display: 'block', width: '100%', marginBottom: 8 }}
                         >
                             {label}

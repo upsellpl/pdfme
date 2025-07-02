@@ -46,5 +46,27 @@ export const getPlugins = () => {
     // UPCE: barcodes.upce,
     // GS1DataMatrix: barcodes.gs1datamatrix,
     // PDF417: barcodes.pdf417,
+    custom: {
+      ui: text.ui,
+      pdf: text.pdf,
+      propPanel: {
+        schema: text.propPanel.schema,
+        widgets: text.propPanel.widgets,
+        defaultSchema: {
+          ...text.propPanel.defaultSchema, ...{
+            type: 'test',
+            position: {
+              x: 0,
+              y: 0
+            },
+            width: 100,
+            height: 20,
+            content: 'test',
+            readOnlyInDesigner: true,
+            onePerDoc: true,
+          }
+        }
+      },
+    }
   };
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider, Typography } from 'antd';
 import {i18n} from "../../../../i18n";
 import PluginButtonList from "./PluginButtonList";
-import {BasePdf} from "@pdfme/common";
+import {BasePdf, SchemaForUI} from "@pdfme/common";
 
 const { Text } = Typography;
 
@@ -17,9 +17,10 @@ interface CustomMainViewItem {
 interface CustomizableViewProps {
     config: CustomMainViewItem[];
     basePdf: BasePdf;
+    schemas: SchemaForUI[];
 }
 
-const CustomizableView = ({ config, basePdf }: CustomizableViewProps) => {
+const CustomizableView = ({ config, basePdf, schemas }: CustomizableViewProps) => {
     return (
         <div className={"pdf-editor-customizable-view"}>
             {config.map(({type, textContent, actionName}, index) => {
@@ -37,7 +38,7 @@ const CustomizableView = ({ config, basePdf }: CustomizableViewProps) => {
                         return <Divider key={index} className={"pdf-editor-customizable-view-divider"}/>;
 
                     case 'plugins':
-                        return <PluginButtonList key={index} basePdf={basePdf}/>;
+                        return <PluginButtonList key={index} basePdf={basePdf} schemas={schemas}/>;
 
                     default:
                         return (

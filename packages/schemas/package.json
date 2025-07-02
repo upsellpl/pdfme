@@ -1,6 +1,6 @@
 {
   "name": "@publigo/pdfme-schemas",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",

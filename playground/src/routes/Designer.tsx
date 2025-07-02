@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useCallback, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { cloneDeep, Template, checkTemplate, Lang, isBlankPdf } from "@pdfme/common";
+import { cloneDeep, Template, checkTemplate, Lang, isBlankPdf } from "@publigo/pdfme-common";
 import { Designer } from "@publigo/pdfme-ui";
 import {
   getFontsData,
