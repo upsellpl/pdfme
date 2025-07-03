@@ -64,6 +64,7 @@ export const getPlugins = () => {
             content: 'test',
             readOnlyInDesigner: true,
             onePerDoc: true,
+            label: 'Custom Plugin'
           }
         }
       },

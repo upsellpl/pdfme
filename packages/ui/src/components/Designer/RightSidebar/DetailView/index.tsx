@@ -346,6 +346,13 @@ const DetailView = (props: DetailViewProps) => {
     };
   }
 
+  let headerText = `${typedI18n('editField')}: ${(activeSchema as any).label ?? activeSchema.name}`;
+  if (activeSchema.type === 'text' && typeof activeSchema.content === 'string') {
+    const plain = activeSchema.content.replace(/\s+/g, ' ').trim();
+    const snippet = plain.length > 20 ? `${plain.slice(0, 20)}...` : plain;
+    headerText = `${typedI18n('editField')}: "${snippet}"`;
+  }
+
   return (
     <div>
       <div style={{ height: 40, display: 'flex', alignItems: 'center' }}>
@@ -361,7 +368,7 @@ const DetailView = (props: DetailViewProps) => {
           icon={<Menu strokeWidth={1.5} size={20} />}
         />
         <Text strong style={{ textAlign: 'center', width: '100%' }}>
-          {typedI18n('editField')}
+          {headerText}
         </Text>
       </div>
       <Divider style={{ marginTop: token.marginXS, marginBottom: token.marginXS }} />
