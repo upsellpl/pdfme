@@ -57,10 +57,24 @@ const DetailView = (props: DetailViewProps) => {
   }>({});
 
   useEffect(() => {
+    const ColorWidget = (p: PropPanelWidgetProps) => {
+      const { schema, value, onChange } = p;
+      const colorValue =
+          typeof value === 'string' && /^#/.test(value) ? value : '#000000';
+      return (
+          <input
+              type="color"
+              value={colorValue}
+              onChange={(e) => onChange(e.target.value)}
+              {...(schema.props as any)}
+          />
+      );
+    };
     const newWidgets: typeof widgets = {
+      color: ColorWidget,
       AlignWidget: (p) => <AlignWidget {...p} {...props} options={options} />,
       Divider: () => (
-        <Divider style={{ marginTop: token.marginXS, marginBottom: token.marginXS }} />
+          <Divider style={{ marginTop: token.marginXS, marginBottom: token.marginXS }} />
       ),
       ButtonGroup: (p) => <ButtonGroupWidget {...p} {...props} options={options} />,
     };
@@ -68,14 +82,14 @@ const DetailView = (props: DetailViewProps) => {
       const widgets = plugin.propPanel.widgets || {};
       Object.entries(widgets).forEach(([widgetKey, widgetValue]) => {
         newWidgets[widgetKey] = (p) => (
-          <WidgetRenderer
-            {...p}
-            {...props}
-            options={options}
-            theme={token}
-            i18n={typedI18n}
-            widget={widgetValue}
-          />
+            <WidgetRenderer
+                {...p}
+                {...props}
+                options={options}
+                theme={token}
+                i18n={typedI18n}
+                widget={widgetValue}
+            />
         );
       });
     }
