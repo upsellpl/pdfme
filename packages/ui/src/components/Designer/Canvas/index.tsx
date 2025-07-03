@@ -128,6 +128,8 @@ const Canvas = (props: Props, ref: Ref<HTMLDivElement>) => {
   const [isPressShiftKey, setIsPressShiftKey] = useState(false);
   const [editing, setEditing] = useState(false);
 
+  const [isDragging, setIsDragging] = useState(false);
+
   const prevSchemas = usePrevious(schemasList[pageCursor]);
 
   const onKeydown = (e: KeyboardEvent) => {
@@ -199,6 +201,8 @@ const Canvas = (props: Props, ref: Ref<HTMLDivElement>) => {
     } else {
       target.style.left = `${left < leftPadding ? leftPadding : left}px`;
     }
+
+    setIsDragging(true);
   };
 
   const onDragEnd = ({ target }: { target: HTMLElement | SVGElement }) => {
@@ -207,6 +211,8 @@ const Canvas = (props: Props, ref: Ref<HTMLDivElement>) => {
       { key: 'position.y', value: fmt(top), schemaId: target.id },
       { key: 'position.x', value: fmt(left), schemaId: target.id },
     ]);
+
+    setIsDragging(false);
   };
 
   const onDragEnds = ({ targets }: { targets: (HTMLElement | SVGElement)[] }) => {
@@ -215,6 +221,8 @@ const Canvas = (props: Props, ref: Ref<HTMLDivElement>) => {
       { key: 'position.x', value: fmt(left), schemaId: id },
     ]);
     changeSchemas(flatten(arg));
+
+    setIsDragging(false);
   };
 
   const onRotate = ({ target, rotate }: OnRotate) => {
@@ -426,7 +434,7 @@ const Canvas = (props: Props, ref: Ref<HTMLDivElement>) => {
         hasRulers={true}
         renderPaper={({ index, paperSize }) => (
           <>
-            {!editing && activeElements.length > 0 && pageCursor === index && (
+            {!editing && !isDragging && activeElements.length > 0 && pageCursor === index && (
               <DeleteButton activeElements={activeElements} />
             )}
             <Padding basePdf={basePdf} />

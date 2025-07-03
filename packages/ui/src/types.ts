@@ -1,4 +1,4 @@
-import {SchemaForUI, Size, ChangeSchemas, BasePdf} from '@pdfme/common';
+import {SchemaForUI, Size, ChangeSchemas, BasePdf} from '@publigo/pdfme-common';
 
 export type SidebarProps = {
   height: number;
@@ -17,4 +17,5 @@ export type SidebarProps = {
   sidebarOpen: boolean;
   setSidebarOpen: (sidebarOpen: boolean) => void;
   basePdf: BasePdf;
+  addSchema?: (defaultSchema: import('@publigo/pdfme-common').Schema) => void;
 };

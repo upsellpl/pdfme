@@ -358,6 +358,7 @@ const TemplateEditor = ({
             sidebarOpen={sidebarOpen}
             setSidebarOpen={setSidebarOpen}
             basePdf={template.basePdf}
+            addSchema={addSchema}
           />
 
           <Canvas

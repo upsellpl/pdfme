@@ -55,9 +55,11 @@ const Draggable = (props: {
 const PluginButtonList = ({
     basePdf,
     schemas,
+    addSchema,
 }: {
     basePdf: BasePdf;
     schemas: SchemaForUI[];
+    addSchema?: (defaultSchema: import('@pdfme/common').Schema) => void;
 }) => {
     const { token } = theme.useToken();
     const pluginsRegistry = useContext(PluginsRegistry);
@@ -88,29 +90,18 @@ const PluginButtonList = ({
                 const onePerDoc = !!plugin.propPanel.defaultSchema.onePerDoc;
                 const disabled = onePerDoc && (schemas.some(schema => schema.type === plugin.propPanel.defaultSchema.type));
 
-                if(disabled) {
-                    return (
-                        <Button
-                            key={name}
-                            className={"pdf-editor-plugin-button"}
-                            style={{ display: 'block', width: '100%', marginBottom: 8 }}
-                            disabled={true}
-                        >
-                            {label}
-                        </Button>
-                    );
-                }
-
                 return (
-                    <Draggable key={name} scale={1} basePdf={basePdf} plugin={plugin}>
-                        <Button
-                            className={"pdf-editor-plugin-button"}
-                            onMouseDown={disabled ? () => {} : () => setIsDragging(true)}
-                            style={{ display: 'block', width: '100%', marginBottom: 8 }}
-                        >
-                            {label}
-                        </Button>
-                    </Draggable>
+                    <Button
+                        key={name}
+                        className={"pdf-editor-plugin-button"}
+                        style={{ display: 'block', width: '100%', marginBottom: 8 }}
+                        disabled={disabled}
+                        onClick={() =>
+                            addSchema?.(plugin.propPanel.defaultSchema)
+                        }
+                    >
+                        {label}
+                    </Button>
                 );
             })}
         </div>

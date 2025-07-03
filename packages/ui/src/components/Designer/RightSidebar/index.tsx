@@ -9,7 +9,7 @@ import {OptionsContext} from "../../../contexts";
 import CustomizableView from "./CustomizableView";
 
 const Sidebar = (props: SidebarProps) => {
-  const { sidebarOpen, setSidebarOpen, activeElements, schemas } = props;
+  const { sidebarOpen, setSidebarOpen, activeElements, schemas, addSchema } = props;
   const options = useContext(OptionsContext);
 
   const { token } = theme.useToken();
@@ -74,7 +74,7 @@ const Sidebar = (props: SidebarProps) => {
         >
           <div>
             {getActiveSchemas().length === 0 ? (
-                (Array.isArray(options.customMainView) && options.customMainView.length)  ? <CustomizableView config={options.customMainView} basePdf={props.basePdf} schemas={schemas} /> : <ListView {...props} />
+                (Array.isArray(options.customMainView) && options.customMainView.length)  ? <CustomizableView config={options.customMainView} basePdf={props.basePdf} schemas={schemas} addSchema={addSchema} /> : <ListView {...props} />
             ) : (
               <DetailView {...props} activeSchema={getLastActiveSchema()} />
             )}
