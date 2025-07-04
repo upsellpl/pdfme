@@ -61,6 +61,24 @@ new Designer({
 
 Create your own labels and use the i18n function from the plugin to retrieve the labels. Please refer to the implementation of the [Signature plugin](https://github.com/pdfme/pdfme/blob/main/playground/src/plugins/signature.ts) in the Playground code.
 
+## Field Hints
+
+You can define contextual hints for specific fields in the property panel by passing a `hints` object in `options`. The keys should match the field names, and the hints will be shown under the field label (if the field header exists).
+
+```ts
+new Designer({
+  domContainer,
+  template,
+  options: {
+    hints: {
+      name: 'Unique name for reference (no spaces)',
+      content: 'Text displayed in the PDF output',
+    },
+  },
+});
+```
+
+
 ## UI Maximum Zoom Level
 
 By default, pdfme can zoom up to 200% of the original PDF size. 

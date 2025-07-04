@@ -40,6 +40,7 @@ const Sidebar = (props: SidebarProps) => {
       className={"pdf-editor-sidebar"}
     >
       <div>
+        { !options.hideToggleSidebarButton && (
         <Button
           style={{
             position: 'absolute',
@@ -56,6 +57,7 @@ const Sidebar = (props: SidebarProps) => {
           icon={(sidebarOpen && options.mainSidebarPosition !== 'left') || (!sidebarOpen && options.mainSidebarPosition === 'left') ? <ArrowRight {...iconProps} /> : <ArrowLeft {...iconProps} />}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         />
+        ) }
         <div
           style={{
             width: RIGHT_SIDEBAR_WIDTH,

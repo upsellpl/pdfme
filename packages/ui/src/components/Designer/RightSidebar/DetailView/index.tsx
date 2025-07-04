@@ -9,7 +9,7 @@ import type {
   Schema,
 } from '@pdfme/common';
 import type { SidebarProps } from '../../../../types.js';
-import { Menu } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { I18nContext, PluginsRegistry, OptionsContext } from '../../../../contexts.js';
 import { getSidebarContentHeight, debounce } from '../../../../helper.js';
 import { theme, Typography, Button, Divider } from 'antd';
@@ -258,7 +258,7 @@ const DetailView = (props: DetailViewProps) => {
         hidden: !form.getValues().editable || (options.hiddenProperties ?? []).includes("required"),
       },
       '-': { type: 'void', widget: 'Divider', hidden: Array.isArray(options.hiddenProperties) && (['required', 'type', 'name', 'editable'].every(item => (options.hiddenProperties ?? []).includes(item))) },
-      align: { title: typedI18n('align'), type: 'void', widget: 'AlignWidget' },
+      align: { title: typedI18n('align'), type: 'void', widget: 'AlignWidget'},
       position: {
         type: 'object',
         widget: 'card',
@@ -291,6 +291,7 @@ const DetailView = (props: DetailViewProps) => {
         max: 360,
         props: { min: 0 },
         span: 6,
+        hidden: (options.hiddenProperties ?? []).includes('rotate'),
       },
       opacity: {
         title: typedI18n('opacity'),
@@ -299,6 +300,7 @@ const DetailView = (props: DetailViewProps) => {
         disabled: typeof defaultSchema.opacity === 'undefined',
         props: { step: 0.1, min: 0, max: 1 },
         span: 6,
+        hidden: (options.hiddenProperties ?? []).includes('opacity'),
       },
     },
   };
@@ -360,6 +362,19 @@ const DetailView = (props: DetailViewProps) => {
     };
   }
 
+  console.log(options.hints)
+  if (options.hints) {
+    for (const [key, hint] of Object.entries(options.hints)) {
+      if (propPanelSchema.properties[key]) {
+        propPanelSchema.properties[key] = {
+          ...propPanelSchema.properties[key],
+          description: hint,
+          descType: 'text',
+        };
+      }
+    }
+  }
+
   let headerText = `${typedI18n('editField')}: ${(activeSchema as any).label ?? activeSchema.name}`;
   if (activeSchema.type === 'text' && typeof activeSchema.content === 'string') {
     const plain = activeSchema.content.replace(/\s+/g, ' ').trim();
@@ -379,7 +394,7 @@ const DetailView = (props: DetailViewProps) => {
             justifyContent: 'center',
           }}
           onClick={deselectSchema}
-          icon={<Menu strokeWidth={1.5} size={20} />}
+          icon={<ArrowLeft strokeWidth={1.5} size={20} />}
         />
         <Text strong style={{ textAlign: 'center', width: '100%' }}>
           {headerText}

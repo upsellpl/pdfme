@@ -56,10 +56,12 @@ const PluginButtonList = ({
     basePdf,
     schemas,
     addSchema,
+    pluginTypes,
 }: {
     basePdf: BasePdf;
     schemas: SchemaForUI[];
     addSchema?: (defaultSchema: import('@pdfme/common').Schema) => void;
+    pluginTypes?: string[];
 }) => {
     const { token } = theme.useToken();
     const pluginsRegistry = useContext(PluginsRegistry);
@@ -83,7 +85,13 @@ const PluginButtonList = ({
                 overflow: isDragging ? 'visible' : 'auto',
             }}
         >
-            {pluginsRegistry.entries().map(([name, plugin]) => {
+            {(pluginTypes && pluginTypes.length > 0
+                    ? pluginsRegistry.entries().filter(([, plugin]) =>
+                        plugin.propPanel.defaultSchema.type != null &&
+                        pluginTypes.includes(plugin.propPanel.defaultSchema.type)
+                    )
+                    : pluginsRegistry.entries()
+            ).map(([name, plugin]) => {
                 if (!plugin?.propPanel?.defaultSchema) return null;
 
                 const label = plugin.propPanel.defaultSchema.label ?? name;

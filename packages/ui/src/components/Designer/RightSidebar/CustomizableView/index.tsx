@@ -7,6 +7,7 @@ interface CustomMainViewItem {
     type: string;
     textContent?: string;
     actionName?: string;
+    pluginTypes?: string[];
 }
 
 interface CustomizableViewProps {
@@ -19,7 +20,7 @@ interface CustomizableViewProps {
 const CustomizableView = ({ config, basePdf, schemas, addSchema }: CustomizableViewProps) => {
     return (
         <div className={"pdf-editor-customizable-view"}>
-            {config.map(({type, textContent, actionName}, index) => {
+            {config.map(({type, textContent, actionName, pluginTypes}, index) => {
                 switch (type) {
                     case 'header':
                         return <h2 key={index} className={"pdf-editor-customizable-view-h2"}>{textContent}</h2>;
@@ -34,7 +35,7 @@ const CustomizableView = ({ config, basePdf, schemas, addSchema }: CustomizableV
                         return <Divider key={index} className={"pdf-editor-customizable-view-divider"}/>;
 
                     case 'plugins':
-                        return <PluginButtonList key={index} basePdf={basePdf} schemas={schemas} addSchema={addSchema} />;
+                        return <PluginButtonList key={index} basePdf={basePdf} schemas={schemas} addSchema={addSchema} pluginTypes={pluginTypes} />;
 
                     default:
                         return (

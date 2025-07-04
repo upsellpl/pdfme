@@ -198,6 +198,7 @@ export const GenerateProps = CommonProps.extend({
 export const UIOptions = CommonOptions.extend({
   lang: Lang.optional(),
   labels: z.record(z.string(), z.string()).optional(),
+  hints: z.record(z.string(), z.string()).optional(),
   theme: z.record(z.string(), z.unknown()).optional(),
   icons: z.record(z.string(), z.string()).optional(),
   requiredByDefault: z.boolean().optional(),
@@ -210,11 +211,13 @@ export const UIOptions = CommonOptions.extend({
         type: z.string(),
         textContent: z.string().optional(),
         actionName: z.string().optional(),
+        pluginTypes: z.array(z.string()).optional(),
       })
   ).optional(),
   mainSidebarPosition: z.enum(['left', 'right']).optional(),
   hiddenProperties: z.array(z.string()).optional(),
   toggleSidebarButtonPosition: z.enum(['bottom', 'top']).optional(),
+  hideToggleSidebarButton: z.boolean().optional(),
 });
 
 const HTMLElementSchema: z.ZodSchema<HTMLElement> = z.any().refine((v) => v instanceof HTMLElement);

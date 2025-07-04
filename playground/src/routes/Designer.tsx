@@ -80,13 +80,24 @@ function DesignerApp() {
               textContent: 'Ich treść zostanie zastąpiona przez odpowiednie wartości podczas generowania certyfikatu dla kursanta.'
             },
             {
-              type: 'plugins'
+              type: 'plugins',
+            },
+            {
+              type: 'header',
+              textContent: 'Tylko plugin tekstowy dla testu:'
+            },
+            {
+              type: 'plugins',
+              pluginTypes: ['text']
             }
           ],
           mainSidebarPosition: 'left',
           toggleSidebarButtonPosition: 'bottom',
-          hiddenProperties: ['type', 'name', 'editable', 'required'],
-
+          hiddenProperties: ['type', 'name', 'editable', 'required', 'rotate', 'opacity'],
+          hideToggleSidebarButton: true,
+          hints: {
+            align: "Wyrównaj element względem obszaru roboczego"
+          }
         },
         plugins: getPlugins(),
       });
