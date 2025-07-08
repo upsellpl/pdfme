@@ -12,7 +12,7 @@ import type { SidebarProps } from '../../../../types.js';
 import { ArrowLeft } from 'lucide-react';
 import { I18nContext, PluginsRegistry, OptionsContext } from '../../../../contexts.js';
 import { getSidebarContentHeight, debounce } from '../../../../helper.js';
-import { theme, Typography, Button, Divider } from 'antd';
+import { theme, Typography, Button, Divider, Collapse, ConfigProvider } from 'antd';
 import AlignWidget from './AlignWidget.js';
 import WidgetRenderer from './WidgetRenderer.js';
 import ButtonGroupWidget from './ButtonGroupWidget.js';
@@ -22,6 +22,7 @@ import { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/es/interfac
 import FormRenderComponent from 'form-render';
 
 const { Text } = Typography;
+const { Panel } = Collapse;
 
 type DetailViewProps = Pick<
   SidebarProps,
@@ -408,13 +409,90 @@ const DetailView = (props: DetailViewProps) => {
           overflowX: 'hidden',
         }}
       >
-        <FormRenderComponent
-          form={form}
-          schema={propPanelSchema}
-          widgets={widgets}
-          watch={{ '#': handleWatch }}
-          locale="en-US"
-        />
+        {activeSchema.type === 'text' ? (
+          <>
+            <Text strong style={{ display: 'block', marginTop: token.marginXS, marginBottom: token.marginXS }}>
+              {typedI18n('elementPosition')}
+            </Text>
+            <FormRenderComponent
+              form={form}
+              schema={{ type: 'object', column: 2, properties: { align: propPanelSchema.properties.align } }}
+              widgets={widgets}
+              watch={{ '#': handleWatch }}
+              locale="en-US"
+            />
+            <Text strong style={{ display: 'block', marginTop: token.marginXS, marginBottom: token.marginXS }}>
+              {typedI18n('textFormatting')}
+            </Text>
+            <FormRenderComponent
+              form={form}
+              schema={{
+                type: 'object',
+                column: 2,
+                properties: Object.fromEntries(
+                  Object.entries(propPanelSchema.properties).filter(
+                    ([key]) => !['type', 'name', 'editable', 'required', '-', '--', 'align', 'position', 'width', 'height', 'rotate', 'opacity'].includes(key),
+                  ),
+                ),
+              }}
+              widgets={widgets}
+              watch={{ '#': handleWatch }}
+              locale="en-US"
+            />
+            <FormRenderComponent
+              form={form}
+              schema={{
+                type: 'object',
+                column: 2,
+                properties: {
+                  rotate: propPanelSchema.properties.rotate,
+                  opacity: propPanelSchema.properties.opacity,
+                },
+              }}
+              widgets={widgets}
+              watch={{ '#': handleWatch }}
+              locale="en-US"
+            />
+            <ConfigProvider
+              theme={{
+                components: {
+                  Collapse: {
+                    headerPadding: 0,
+                    contentPadding: 0,
+                  },
+                },
+              }}
+            >
+              <Collapse ghost>
+                <Panel key="advanced" header={typedI18n('advanced')}>
+                <FormRenderComponent
+                  form={form}
+                  schema={{
+                    type: 'object',
+                    column: 2,
+                    properties: {
+                      position: propPanelSchema.properties.position,
+                      width: propPanelSchema.properties.width,
+                      height: propPanelSchema.properties.height,
+                    },
+                  }}
+                  widgets={widgets}
+                  watch={{ '#': handleWatch }}
+                  locale="en-US"
+                />
+              </Panel>
+              </Collapse>
+            </ConfigProvider>
+          </>
+        ) : (
+          <FormRenderComponent
+            form={form}
+            schema={propPanelSchema}
+            widgets={widgets}
+            watch={{ '#': handleWatch }}
+            locale="en-US"
+          />
+        )}
       </div>
     </div>
   );

@@ -52,7 +52,7 @@ function DesignerApp() {
         template,
         options: {
           font: getFontsData(),
-          lang: 'en',
+          lang: 'pl',
           labels: {
             'signature.clear': "🗑️",
           },

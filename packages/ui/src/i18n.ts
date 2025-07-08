@@ -31,6 +31,8 @@ const dictEn: { [key in keyof Dict]: string } = {
   addPageAfter: 'Add Page After',
   removePage: 'Remove Current Page',
   removePageConfirm: 'Are you sure you want to delete this page? This action cannot be undone.',
+  elementPosition: 'Element Position',
+  textFormatting: 'Text Formatting',
   'validation.hexColor': 'Please enter a valid hex color code.',
   'validation.uniqueName': 'Please enter a unique name.',
   'validation.dateTimeFormat': 'Invalid date time format.',
@@ -78,6 +80,7 @@ const dictEn: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Options',
   'schemas.select.optionPlaceholder': 'Enter an option',
   'schemas.radioGroup.groupName': 'Group Name',
+  advanced: 'Advanced',
 };
 
 const dictZh: { [key in keyof Dict]: string } = {
@@ -109,6 +112,8 @@ const dictZh: { [key in keyof Dict]: string } = {
   addPageAfter: '在之后添加页面',
   removePage: '删除当前页面',
   removePageConfirm: '您确定要删除此页面吗？此操作无法撤销。',
+  elementPosition: '元素位置',
+  textFormatting: '文本格式',
   'validation.hexColor': '请输入有效的十六进制颜色代码。',
   'validation.uniqueName': '请输入一个唯一的名称。',
   'validation.dateTimeFormat': '日期时间格式无效。',
@@ -155,6 +160,7 @@ const dictZh: { [key in keyof Dict]: string } = {
   'schemas.select.options': '选项',
   'schemas.select.optionPlaceholder': '请输入选项',
   'schemas.radioGroup.groupName': '组名',
+  advanced: 'Advanced',
 };
 
 const dictJa: { [key in keyof Dict]: string } = {
@@ -186,6 +192,8 @@ const dictJa: { [key in keyof Dict]: string } = {
   addPageAfter: '次にページを追加',
   removePage: '現在のページを削除',
   removePageConfirm: 'ページを削除してもよろしいですか？この操作は元に戻せません。',
+  elementPosition: '要素の位置',
+  textFormatting: 'テキストの書式設定',
   'validation.hexColor': '有効な16進数のカラーコードを入力してください。',
   'validation.uniqueName': '一意の名前を入力してください。',
   'validation.dateTimeFormat': '日付と時刻のフォーマットが無効です。',
@@ -232,6 +240,7 @@ const dictJa: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'オプション',
   'schemas.select.optionPlaceholder': 'オプションを入力してください',
   'schemas.radioGroup.groupName': 'グループ名',
+  advanced: 'Advanced',
 };
 
 const dictKo: { [key in keyof Dict]: string } = {
@@ -263,6 +272,8 @@ const dictKo: { [key in keyof Dict]: string } = {
   addPageAfter: '다음에 페이지 추가',
   removePage: '현재 페이지 제거',
   removePageConfirm: '이 페이지를 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.',
+  elementPosition: '요소 위치',
+  textFormatting: '텍스트 서식',
   'validation.hexColor': '유효한 16진수 색상 코드를 입력하세요.',
   'validation.uniqueName': '고유한 이름을 입력하세요.',
   'validation.dateTimeFormat': '날짜/시간 형식이 잘못되었습니다.',
@@ -309,6 +320,7 @@ const dictKo: { [key in keyof Dict]: string } = {
   'schemas.select.options': '옵션',
   'schemas.select.optionPlaceholder': '옵션을 입력하세요',
   'schemas.radioGroup.groupName': '그룹 이름',
+  advanced: 'Advanced',
 };
 
 const dictAr: { [key in keyof Dict]: string } = {
@@ -340,6 +352,8 @@ const dictAr: { [key in keyof Dict]: string } = {
   addPageAfter: 'إضافة صفحة بعد',
   removePage: 'احذف الصفحة الحالية',
   removePageConfirm: 'هل أنت متأكد من رغبتك في حذف هذه الصفحة؟ لا يمكن التراجع عن هذا الإجراء.',
+  elementPosition: 'موضع العنصر',
+  textFormatting: 'تنسيق النص',
   'validation.hexColor': 'الرجاء إدخال رمز لون سداسي عشري صالح.',
   'validation.uniqueName': 'الرجاء إدخال اسم فريد.',
   'validation.dateTimeFormat': 'تنسيق التاريخ والوقت غير صالح.',
@@ -387,6 +401,7 @@ const dictAr: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'خيارات',
   'schemas.select.optionPlaceholder': 'أدخل خيارًا',
   'schemas.radioGroup.groupName': 'اسم المجموعة',
+  advanced: 'Advanced',
 };
 
 const dictTh: { [key in keyof Dict]: string } = {
@@ -418,6 +433,8 @@ const dictTh: { [key in keyof Dict]: string } = {
   addPageAfter: 'เพิ่มหน้าถัดไป',
   removePage: 'ลบหน้าปัจจุบัน',
   removePageConfirm: 'คุณแน่ใจหรือไม่ว่าต้องการลบหน้านี้? การกระทำนี้ไม่สามารถย้อนกลับได้',
+  elementPosition: 'ตำแหน่งขององค์ประกอบ',
+  textFormatting: 'จัดรูปแบบข้อความ',
   'validation.hexColor': 'กรุณาใส่รหัสสีแบบฐานสิบหกที่ถูกต้อง',
   'validation.uniqueName': 'กรุณาระบุชื่อที่ไม่ซ้ำ',
   'validation.dateTimeFormat': 'รูปแบบวันที่และเวลาไม่ถูกต้อง',
@@ -497,6 +514,8 @@ const dictIt: { [key in keyof Dict]: string } = {
   removePage: 'Rimuovi la Pagina Corrente',
   removePageConfirm:
     'Sei sicuro di voler eliminare questa pagina? Questa azione non può essere annullata.',
+  elementPosition: 'Posizione elemento',
+  textFormatting: 'Formattazione testo',
   'validation.hexColor': 'Inserisci un codice colore esadecimale valido.',
   'validation.uniqueName': 'Inserisci un nome univoco.',
   'validation.dateTimeFormat': 'Formato data-ora non valido.',
@@ -575,6 +594,8 @@ const dictPl: { [key in keyof Dict]: string } = {
   addPageAfter: 'Dodaj stronę po',
   removePage: 'Usuń Bieżącą Stronę',
   removePageConfirm: 'Czy na pewno chcesz usunąć tę stronę? Tej operacji nie można cofnąć.',
+  elementPosition: 'Położenie elementu',
+  textFormatting: 'Formatowanie tekstu',
   'validation.hexColor': 'Wprowadź poprawny kod koloru szesnastkowego.',
   'validation.uniqueName': 'Proszę wpisać unikalną nazwę.',
   'validation.dateTimeFormat': 'Nieprawidłowy format daty i godziny.',
@@ -654,6 +675,8 @@ const dictDe: { [key in keyof Dict]: string } = {
   removePage: 'Aktuelle Seite entfernen',
   removePageConfirm:
     'Sind Sie sicher, dass Sie diese Seite löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.',
+  elementPosition: 'Elementposition',
+  textFormatting: 'Textformatierung',
   'validation.hexColor': 'Bitte geben Sie einen gültigen Hex-Farbcode ein.',
   'validation.uniqueName': 'Bitte geben Sie einen eindeutigen Namen ein.',
   'validation.dateTimeFormat': 'Ungültiges Datums- und Zeitformat.',
@@ -734,6 +757,8 @@ const dictEs: { [key in keyof Dict]: string } = {
   removePage: 'Eliminar página actual',
   removePageConfirm:
     '¿Estás seguro de que quieres eliminar esta página? Esta acción no se puede deshacer.',
+  elementPosition: 'Posición del elemento',
+  textFormatting: 'Formato de texto',
   'validation.hexColor': 'Introduce un código de color hexadecimal válido.',
   'validation.uniqueName': 'Por favor, introduzca un nombre único.',
   'validation.dateTimeFormat': 'Formato de fecha y hora no válido.',
@@ -813,6 +838,8 @@ const dictFr: { [key in keyof Dict]: string } = {
   removePage: 'Supprimer la page actuelle',
   removePageConfirm:
     'Êtes-vous sûr de vouloir supprimer cette page ? Cette action est irréversible.',
+  elementPosition: 'Position de l’élément',
+  textFormatting: 'Mise en forme du texte',
   'validation.hexColor': 'Veuillez entrer un code couleur hexadécimal valide.',
   'validation.uniqueName': 'Veuillez saisir un nom unique.',
   'validation.dateTimeFormat': "Format de date et d'heure non valide.",

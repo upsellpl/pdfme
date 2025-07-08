@@ -33,6 +33,10 @@ export const Dict = z.object({
   addPageAfter: z.string(),
   removePage: z.string(),
   removePageConfirm: z.string(),
+  /** Section title for element positioning in detail view */
+  elementPosition: z.string(),
+  /** Section title for text formatting in detail view */
+  textFormatting: z.string(),
   // --------------------validation-------------------
   'validation.uniqueName': z.string(),
   'validation.hexColor': z.string(),
