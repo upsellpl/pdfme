@@ -642,6 +642,7 @@ const dictPl: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Opcje',
   'schemas.select.optionPlaceholder': 'Wpisz opcję',
   'schemas.radioGroup.groupName': 'Nazwa grupy',
+  advanced: 'Zaawansowane',
 };
 
 const dictDe: { [key in keyof Dict]: string } = {

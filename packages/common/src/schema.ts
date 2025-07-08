@@ -37,6 +37,8 @@ export const Dict = z.object({
   elementPosition: z.string(),
   /** Section title for text formatting in detail view */
   textFormatting: z.string(),
+  /** Section title for advanced settings in detail view */
+  advanced: z.string(),
   // --------------------validation-------------------
   'validation.uniqueName': z.string(),
   'validation.hexColor': z.string(),
