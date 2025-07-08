@@ -431,7 +431,22 @@ const DetailView = (props: DetailViewProps) => {
                 column: 2,
                 properties: Object.fromEntries(
                   Object.entries(propPanelSchema.properties).filter(
-                    ([key]) => !['type', 'name', 'editable', 'required', '-', '--', 'align', 'position', 'width', 'height', 'rotate', 'opacity'].includes(key),
+                    ([key]) => ![
+                      'type',
+                      'name',
+                      'editable',
+                      'required',
+                      '-',
+                      '--',
+                      'align',
+                      'position',
+                      'width',
+                      'height',
+                      'rotate',
+                      'opacity',
+                      'useDynamicFontSize',
+                      'dynamicFontSize',
+                    ].includes(key),
                   ),
                 ),
               }}
@@ -463,24 +478,32 @@ const DetailView = (props: DetailViewProps) => {
                 },
               }}
             >
-              <Collapse ghost>
+              <Collapse ghost style={{ marginTop: token.marginXS }}>
                 <Panel key="advanced" header={typedI18n('advanced')}>
-                <FormRenderComponent
-                  form={form}
-                  schema={{
-                    type: 'object',
-                    column: 2,
-                    properties: {
-                      position: propPanelSchema.properties.position,
-                      width: propPanelSchema.properties.width,
-                      height: propPanelSchema.properties.height,
-                    },
-                  }}
-                  widgets={widgets}
-                  watch={{ '#': handleWatch }}
-                  locale="en-US"
-                />
-              </Panel>
+                  <FormRenderComponent
+                    form={form}
+                    schema={{
+                      type: 'object',
+                      column: 2,
+                      properties: {
+                        position: propPanelSchema.properties.position,
+                        width: propPanelSchema.properties.width,
+                        height: propPanelSchema.properties.height,
+                        useDynamicFontSize: {
+                          ...propPanelSchema.properties.useDynamicFontSize,
+                          hidden: (options.hiddenProperties ?? []).includes('useDynamicFontSize'),
+                        },
+                        dynamicFontSize: {
+                          ...propPanelSchema.properties.dynamicFontSize,
+                          hidden: (options.hiddenProperties ?? []).includes('dynamicFontSize'),
+                        },
+                      },
+                    }}
+                    widgets={widgets}
+                    watch={{ '#': handleWatch }}
+                    locale="en-US"
+                  />
+                </Panel>
               </Collapse>
             </ConfigProvider>
           </>

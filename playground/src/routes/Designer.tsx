@@ -93,7 +93,7 @@ function DesignerApp() {
           ],
           mainSidebarPosition: 'left',
           toggleSidebarButtonPosition: 'bottom',
-          hiddenProperties: ['type', 'name', 'editable', 'required', 'rotate', 'opacity'],
+          hiddenProperties: ['type', 'name', 'editable', 'required', 'rotate', 'opacity', 'useDynamicFontSize'],
           hideToggleSidebarButton: true,
           hints: {
             align: "Wyrównaj element względem obszaru roboczego"

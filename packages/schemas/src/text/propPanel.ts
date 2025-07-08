@@ -23,7 +23,10 @@ import { DEFAULT_OPACITY, HEX_COLOR_PATTERN } from '../constants.js';
 import { getExtraFormatterSchema } from './extraFormatter.js';
 
 const UseDynamicFontSize = (props: PropPanelWidgetProps) => {
-  const { rootElement, changeSchemas, activeSchema, i18n } = props;
+  const { rootElement, changeSchemas, activeSchema, i18n, options } = props;
+  if ((options.hiddenProperties ?? []).includes('useDynamicFontSize')) {
+    return;
+  }
 
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
@@ -46,6 +49,12 @@ const UseDynamicFontSize = (props: PropPanelWidgetProps) => {
   label.appendChild(checkbox);
   label.appendChild(span);
   rootElement.appendChild(label);
+  // add explanatory hint under the checkbox
+  const hint = document.createElement('div');
+  hint.innerText = i18n('schemas.text.dynamicFontSizeHint') || '';
+  hint.style.cssText =
+    'display: block; font-size: 0.875rem; color: var(--adm-color-text-3); margin-left: 1.5rem; margin-top: 0.25rem;';
+  rootElement.appendChild(hint);
 };
 
 export const propPanel: PropPanel<TextSchema> = {

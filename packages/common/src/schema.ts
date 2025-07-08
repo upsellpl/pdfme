@@ -71,6 +71,8 @@ export const Dict = z.object({
   'schemas.text.max': z.string(),
   'schemas.text.fit': z.string(),
   'schemas.text.dynamicFontSize': z.string(),
+  /** Explanation text for the dynamic font size option in advanced tab */
+  'schemas.text.dynamicFontSizeHint': z.string(),
   'schemas.text.format': z.string(),
   'schemas.radius': z.string(),
 
