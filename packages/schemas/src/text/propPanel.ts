@@ -93,13 +93,6 @@ export const propPanel: PropPanel<TextSchema> = {
         props: { min: 0 },
       },
       formatter: getExtraFormatterSchema(i18n),
-      lineHeight: {
-        title: i18n('schemas.text.lineHeight'),
-        type: 'number',
-        widget: 'inputNumber',
-        props: { step: 0.1, min: 0 },
-        span: 8,
-      },
       useDynamicFontSize: { type: 'boolean', widget: 'UseDynamicFontSize', bind: false, span: 16 },
       dynamicFontSize: {
         type: 'object',
@@ -161,6 +154,13 @@ export const propPanel: PropPanel<TextSchema> = {
             message: i18n('validation.hexColor'),
           },
         ],
+      },
+      lineHeight: {
+        title: i18n('schemas.text.lineHeight'),
+        type: 'number',
+        widget: 'inputNumber',
+        props: { step: 0.1, min: 0 },
+        span: 8,
       },
     };
 
