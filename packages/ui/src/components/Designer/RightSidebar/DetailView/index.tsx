@@ -21,6 +21,11 @@ import { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/es/interfac
 // Import FormRender as a default import
 import FormRenderComponent from 'form-render';
 
+// Type-guard: checks if schema object has a 'label' property
+function hasLabelField(schema: unknown): schema is { label: unknown } {
+  return typeof schema === 'object' && schema !== null && 'label' in schema;
+}
+
 const { Text } = Typography;
 const { Panel } = Collapse;
 
@@ -363,7 +368,6 @@ const DetailView = (props: DetailViewProps) => {
     };
   }
 
-  console.log(options.hints)
   if (options.hints) {
     for (const [key, hint] of Object.entries(options.hints)) {
       if (propPanelSchema.properties[key]) {
@@ -409,7 +413,7 @@ const DetailView = (props: DetailViewProps) => {
           overflowX: 'hidden',
         }}
       >
-        {activeSchema.type === 'text' ? (
+        {activeSchema.type === 'text' || hasLabelField(activeSchema) ? (
           <>
             <Text strong style={{ display: 'block', marginTop: token.marginXS, marginBottom: token.marginXS }}>
               {typedI18n('elementPosition')}
