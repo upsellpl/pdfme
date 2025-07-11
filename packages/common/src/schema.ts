@@ -99,6 +99,8 @@ export const Dict = z.object({
   'schemas.select.optionPlaceholder': z.string(),
 
   'schemas.radioGroup.groupName': z.string(),
+  'schemas.position.x': z.string(),
+  'schemas.position.y': z.string(),
 });
 export const Mode = z.enum(['viewer', 'form', 'designer']);
 

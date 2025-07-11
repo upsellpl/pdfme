@@ -269,8 +269,8 @@ const DetailView = (props: DetailViewProps) => {
         type: 'object',
         widget: 'card',
         properties: {
-          x: { title: 'X', type: 'number', widget: 'inputNumber', required: true, span: 8, min: 0 },
-          y: { title: 'Y', type: 'number', widget: 'inputNumber', required: true, span: 8, min: 0 },
+          x: { title: typedI18n('schemas.position.x'), type: 'number', widget: 'inputNumber', required: true, span: 12, min: 0 },
+          y: { title: typedI18n('schemas.position.y'), type: 'number', widget: 'inputNumber', required: true, span: 8, min: 0 },
         },
       },
       width: {

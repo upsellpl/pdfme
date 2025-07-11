@@ -81,6 +81,8 @@ const dictEn: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Options',
   'schemas.select.optionPlaceholder': 'Enter an option',
   'schemas.radioGroup.groupName': 'Group Name',
+  'schemas.position.x': 'Position on X axis',
+  'schemas.position.y': 'Position on Y axis',
   advanced: 'Advanced',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -163,6 +165,8 @@ const dictZh: { [key in keyof Dict]: string } = {
   'schemas.select.options': '选项',
   'schemas.select.optionPlaceholder': '请输入选项',
   'schemas.radioGroup.groupName': '组名',
+  'schemas.position.x': 'X 轴位置',
+  'schemas.position.y': 'Y 轴位置',
   advanced: '高级',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -245,6 +249,8 @@ const dictJa: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'オプション',
   'schemas.select.optionPlaceholder': 'オプションを入力してください',
   'schemas.radioGroup.groupName': 'グループ名',
+  'schemas.position.x': 'X 軸上の位置',
+  'schemas.position.y': 'Y 軸上の位置',
   advanced: '詳細設定',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -327,6 +333,8 @@ const dictKo: { [key in keyof Dict]: string } = {
   'schemas.select.options': '옵션',
   'schemas.select.optionPlaceholder': '옵션을 입력하세요',
   'schemas.radioGroup.groupName': '그룹 이름',
+  'schemas.position.x': 'X축 위치',
+  'schemas.position.y': 'Y축 위치',
   advanced: '고급',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -410,6 +418,8 @@ const dictAr: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'خيارات',
   'schemas.select.optionPlaceholder': 'أدخل خيارًا',
   'schemas.radioGroup.groupName': 'اسم المجموعة',
+  'schemas.position.x': 'موضع المحور X',
+  'schemas.position.y': 'موضع المحور Y',
   advanced: 'متقدم',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -492,6 +502,8 @@ const dictTh: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'ตัวเลือก',
   'schemas.select.optionPlaceholder': 'กรอกตัวเลือก',
   'schemas.radioGroup.groupName': 'ชื่อกลุ่ม',
+  'schemas.position.x': 'ตำแหน่งบนแกน X',
+  'schemas.position.y': 'ตำแหน่งบนแกน Y',
   advanced: 'ขั้นสูง',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -577,6 +589,8 @@ const dictIt: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Opzioni',
   'schemas.select.optionPlaceholder': "Inserisci un'opzione",
   'schemas.radioGroup.groupName': 'Nome del Gruppo',
+  'schemas.position.x': 'Posizione asse X',
+  'schemas.position.y': 'Posizione asse Y',
   advanced: 'Avanzate',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -659,6 +673,8 @@ const dictPl: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Opcje',
   'schemas.select.optionPlaceholder': 'Wpisz opcję',
   'schemas.radioGroup.groupName': 'Nazwa grupy',
+  'schemas.position.x': 'Położenie na osi X',
+  'schemas.position.y': 'Położenie na osi Y',
   advanced: 'Zaawansowane',
   'plugin.onePerDoc': 'To pole może być osadzone na obszarze roboczym tylko raz.',
 };
@@ -744,6 +760,8 @@ const dictDe: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Optionen',
   'schemas.select.optionPlaceholder': 'Geben Sie eine Option ein',
   'schemas.radioGroup.groupName': 'Gruppenname',
+  'schemas.position.x': 'Position auf der X-Achse',
+  'schemas.position.y': 'Position auf der Y-Achse',
   advanced: 'Erweitert',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -828,6 +846,8 @@ const dictEs: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Opciones',
   'schemas.select.optionPlaceholder': 'Ingrese una opción',
   'schemas.radioGroup.groupName': 'Nombre del grupo',
+  'schemas.position.x': 'Posición en el eje X',
+  'schemas.position.y': 'Posición en el eje Y',
   advanced: 'Avanzado',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
@@ -913,6 +933,8 @@ const dictFr: { [key in keyof Dict]: string } = {
   'schemas.select.options': 'Options',
   'schemas.select.optionPlaceholder': 'Entrez une option',
   'schemas.radioGroup.groupName': 'Nom du groupe',
+  'schemas.position.x': 'Position sur l’axe X',
+  'schemas.position.y': 'Position sur l’axe Y',
   advanced: 'Avancé',
   'plugin.onePerDoc': 'This plugin can only be added once.',
 };
