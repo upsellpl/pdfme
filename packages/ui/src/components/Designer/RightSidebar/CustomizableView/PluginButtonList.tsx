@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Button, theme } from 'antd';
-import {Plugin, Schema, BasePdf, getFallbackFontName, SchemaForUI} from '@pdfme/common';
+import {Plugin, Schema, BasePdf, getFallbackFontName, SchemaForUI} from '@publigo/pdfme-common';
 import { useDraggable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
-import { OptionsContext, PluginsRegistry } from '../../../../contexts.js';
+import { OptionsContext, PluginsRegistry, I18nContext } from '../../../../contexts.js';
 import Renderer from '../../../Renderer.js';
 import { setFontNameRecursively } from '../../../../helper';
 
@@ -60,11 +60,12 @@ const PluginButtonList = ({
 }: {
     basePdf: BasePdf;
     schemas: SchemaForUI[];
-    addSchema?: (defaultSchema: import('@pdfme/common').Schema) => void;
+    addSchema?: (defaultSchema: import('@publigo/pdfme-common').Schema) => void;
     pluginTypes?: string[];
 }) => {
     const { token } = theme.useToken();
     const pluginsRegistry = useContext(PluginsRegistry);
+    const t = useContext(I18nContext);
     const [isDragging, setIsDragging] = useState(false);
 
     useEffect(() => {
@@ -99,17 +100,16 @@ const PluginButtonList = ({
                 const disabled = onePerDoc && (schemas.some(schema => schema.type === plugin.propPanel.defaultSchema.type));
 
                 return (
-                    <Button
-                        key={name}
-                        className={"pdf-editor-plugin-button"}
-                        style={{ display: 'block', width: '100%', marginBottom: 8 }}
-                        disabled={disabled}
-                        onClick={() =>
-                            addSchema?.(plugin.propPanel.defaultSchema)
-                        }
-                    >
-                        {label}
-                    </Button>
+                <Button
+                    key={name}
+                    className="pdf-editor-plugin-button"
+                    style={{ display: 'block', width: '100%', marginBottom: 8 }}
+                    disabled={disabled}
+                    title={disabled ? t('plugin.onePerDoc') : undefined}
+                    onClick={() => addSchema?.(plugin.propPanel.defaultSchema)}
+                >
+                    {label}
+                </Button>
                 );
             })}
         </div>

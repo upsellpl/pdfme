@@ -39,6 +39,8 @@ export const Dict = z.object({
   textFormatting: z.string(),
   /** Section title for advanced settings in detail view */
   advanced: z.string(),
+  /** Tooltip when a plugin marked onePerDoc is already used */
+  'plugin.onePerDoc': z.string(),
   // --------------------validation-------------------
   'validation.uniqueName': z.string(),
   'validation.hexColor': z.string(),

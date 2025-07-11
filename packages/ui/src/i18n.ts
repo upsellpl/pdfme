@@ -82,6 +82,7 @@ const dictEn: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'Enter an option',
   'schemas.radioGroup.groupName': 'Group Name',
   advanced: 'Advanced',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictZh: { [key in keyof Dict]: string } = {
@@ -163,6 +164,7 @@ const dictZh: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': '请输入选项',
   'schemas.radioGroup.groupName': '组名',
   advanced: '高级',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictJa: { [key in keyof Dict]: string } = {
@@ -244,6 +246,7 @@ const dictJa: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'オプションを入力してください',
   'schemas.radioGroup.groupName': 'グループ名',
   advanced: '詳細設定',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictKo: { [key in keyof Dict]: string } = {
@@ -325,6 +328,7 @@ const dictKo: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': '옵션을 입력하세요',
   'schemas.radioGroup.groupName': '그룹 이름',
   advanced: '고급',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictAr: { [key in keyof Dict]: string } = {
@@ -407,6 +411,7 @@ const dictAr: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'أدخل خيارًا',
   'schemas.radioGroup.groupName': 'اسم المجموعة',
   advanced: 'متقدم',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictTh: { [key in keyof Dict]: string } = {
@@ -488,6 +493,7 @@ const dictTh: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'กรอกตัวเลือก',
   'schemas.radioGroup.groupName': 'ชื่อกลุ่ม',
   advanced: 'ขั้นสูง',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictIt: { [key in keyof Dict]: string } = {
@@ -572,6 +578,7 @@ const dictIt: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': "Inserisci un'opzione",
   'schemas.radioGroup.groupName': 'Nome del Gruppo',
   advanced: 'Avanzate',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictPl: { [key in keyof Dict]: string } = {
@@ -653,6 +660,7 @@ const dictPl: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'Wpisz opcję',
   'schemas.radioGroup.groupName': 'Nazwa grupy',
   advanced: 'Zaawansowane',
+  'plugin.onePerDoc': 'To pole może być osadzone na obszarze roboczym tylko raz.',
 };
 
 const dictDe: { [key in keyof Dict]: string } = {
@@ -737,6 +745,7 @@ const dictDe: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'Geben Sie eine Option ein',
   'schemas.radioGroup.groupName': 'Gruppenname',
   advanced: 'Erweitert',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictEs: { [key in keyof Dict]: string } = {
@@ -820,6 +829,7 @@ const dictEs: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'Ingrese una opción',
   'schemas.radioGroup.groupName': 'Nombre del grupo',
   advanced: 'Avanzado',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictFr: { [key in keyof Dict]: string } = {
@@ -904,6 +914,7 @@ const dictFr: { [key in keyof Dict]: string } = {
   'schemas.select.optionPlaceholder': 'Entrez une option',
   'schemas.radioGroup.groupName': 'Nom du groupe',
   advanced: 'Avancé',
+  'plugin.onePerDoc': 'This plugin can only be added once.',
 };
 
 const dictionaries: { [key in Lang]: Dict } = {
