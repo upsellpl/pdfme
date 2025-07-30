@@ -32,21 +32,10 @@ const { Panel } = Collapse;
 
 const ColorWidget = (p: PropPanelWidgetProps) => {
   const { value, onChange } = p;
-  const [color, setColor] = useState<string | Color | null>(
-    typeof value === 'string' && /^#/.test(value) ? value : null
-  );
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    setColor(typeof value === 'string' && /^#/.test(value) ? value : null);
-  }, [value]);
 
   return (
     <ColorPicker
-      open={open}
-      onOpenChange={setOpen}
-      value={color}
-      onChange={setColor}
+      value={typeof value === 'string' && /^#/.test(value) ? value : null}
       onChangeComplete={(c: Color) => {
         onChange(c.toHexString());
       }}
