@@ -12,7 +12,8 @@ import type { SidebarProps } from '../../../../types.js';
 import { ArrowLeft } from 'lucide-react';
 import { I18nContext, PluginsRegistry, OptionsContext } from '../../../../contexts.js';
 import { getSidebarContentHeight, debounce } from '../../../../helper.js';
-import { theme, Typography, Button, Divider, Collapse, ConfigProvider } from 'antd';
+import { theme, Typography, Button, Divider, Collapse, ConfigProvider, ColorPicker } from 'antd';
+import type { Color } from 'antd/es/color-picker';
 import AlignWidget from './AlignWidget.js';
 import WidgetRenderer from './WidgetRenderer.js';
 import ButtonGroupWidget from './ButtonGroupWidget.js';
@@ -64,16 +65,23 @@ const DetailView = (props: DetailViewProps) => {
 
   useEffect(() => {
     const ColorWidget = (p: PropPanelWidgetProps) => {
-      const { schema, value, onChange } = p;
-      const colorValue =
-          typeof value === 'string' && /^#/.test(value) ? value : '#000000';
+      const { value, onChange } = p;
+      const [color, setColor] = useState<string | Color>(
+        typeof value === 'string' && /^#/.test(value) ? value : '#000000'
+      );
+
+      useEffect(() => {
+        setColor(typeof value === 'string' && /^#/.test(value) ? value : '#000000');
+      }, [value]);
+
       return (
-          <input
-              type="color"
-              value={colorValue}
-              onChange={(e) => onChange(e.target.value)}
-              {...(schema.props as any)}
-          />
+        <ColorPicker
+          value={color}
+          onChange={setColor}
+          onChangeComplete={(c: Color) => {
+            onChange(c.toHexString());
+          }}
+        />
       );
     };
     const newWidgets: typeof widgets = {
