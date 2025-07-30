@@ -30,6 +30,31 @@ function hasLabelField(schema: unknown): schema is { label: unknown } {
 const { Text } = Typography;
 const { Panel } = Collapse;
 
+const ColorWidget = (p: PropPanelWidgetProps) => {
+  const { value, onChange } = p;
+  const [color, setColor] = useState<string | Color>(
+    typeof value === 'string' && /^#/.test(value) ? value : '#000000'
+  );
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setColor(typeof value === 'string' && /^#/.test(value) ? value : '#000000');
+  }, [value]);
+
+  return (
+    <ColorPicker
+      open={open}
+      onOpenChange={setOpen}
+      value={color}
+      onChange={setColor}
+      onChangeComplete={(c: Color) => {
+        onChange(c.toHexString());
+      }}
+    />
+  );
+};
+
+
 type DetailViewProps = Pick<
   SidebarProps,
   | 'size'
@@ -64,26 +89,6 @@ const DetailView = (props: DetailViewProps) => {
   }>({});
 
   useEffect(() => {
-    const ColorWidget = (p: PropPanelWidgetProps) => {
-      const { value, onChange } = p;
-      const [color, setColor] = useState<string | Color>(
-        typeof value === 'string' && /^#/.test(value) ? value : '#000000'
-      );
-
-      useEffect(() => {
-        setColor(typeof value === 'string' && /^#/.test(value) ? value : '#000000');
-      }, [value]);
-
-      return (
-        <ColorPicker
-          value={color}
-          onChange={setColor}
-          onChangeComplete={(c: Color) => {
-            onChange(c.toHexString());
-          }}
-        />
-      );
-    };
     const newWidgets: typeof widgets = {
       color: ColorWidget,
       AlignWidget: (p) => <AlignWidget {...p} {...props} options={options} />,
