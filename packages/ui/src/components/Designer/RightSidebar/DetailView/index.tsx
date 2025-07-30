@@ -32,13 +32,13 @@ const { Panel } = Collapse;
 
 const ColorWidget = (p: PropPanelWidgetProps) => {
   const { value, onChange } = p;
-  const [color, setColor] = useState<string | Color>(
-    typeof value === 'string' && /^#/.test(value) ? value : '#000000'
+  const [color, setColor] = useState<string | Color | null>(
+    typeof value === 'string' && /^#/.test(value) ? value : null
   );
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setColor(typeof value === 'string' && /^#/.test(value) ? value : '#000000');
+    setColor(typeof value === 'string' && /^#/.test(value) ? value : null);
   }, [value]);
 
   return (
@@ -50,6 +50,7 @@ const ColorWidget = (p: PropPanelWidgetProps) => {
       onChangeComplete={(c: Color) => {
         onChange(c.toHexString());
       }}
+      disabledAlpha={p.schema.props?.disabledAlpha ?? false}
     />
   );
 };
