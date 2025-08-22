@@ -49,8 +49,8 @@ export function getExtraFormatterSchema(i18n: (key: string) => string): {
   span: number;
 } {
   const buttons: GroupButton[] = [
-    { key: Formatter.STRIKETHROUGH, icon: TextStrikethroughIcon, type: 'boolean' },
-    { key: Formatter.UNDERLINE, icon: TextUnderlineIcon, type: 'boolean' },
+    // { key: Formatter.STRIKETHROUGH, icon: TextStrikethroughIcon, type: 'boolean' },
+    // { key: Formatter.UNDERLINE, icon: TextUnderlineIcon, type: 'boolean' },
     { key: Formatter.ALIGNMENT, icon: TextAlignLeftIcon, type: 'select', value: DEFAULT_ALIGNMENT },
     { key: Formatter.ALIGNMENT, icon: TextAlignCenterIcon, type: 'select', value: ALIGN_CENTER },
     { key: Formatter.ALIGNMENT, icon: TextAlignRightIcon, type: 'select', value: ALIGN_RIGHT },
